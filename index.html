@@ -23,9 +23,8 @@
         <strong>¡Somos una empresa con éxito!</strong> - Más de 10 años en el mercado - Envíos a todo el país
         <button type="button" class="btn-close btn-close-white" data-bs-dismiss="alert" aria-label="Close"></button>
     </div>
-
     <!-- NAVAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" id="mainNavbar">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" style="height: 80px ; width: 100% ;" id="mainNavbar">
         <div class="container">
             <a class="navbar-brand" href="#" style="transition: all 0.3s ease;">
                 <span class="text-danger fw-bold" style="text-shadow: 0 0 5px rgba(255,0,0,0.5);">Moto</span>max
@@ -76,7 +75,6 @@
     </nav>
 
     <!-- CARRUSEL -->
-
     <header class="hero bg-dark text-white py-5 position-relative overflow-hidden">
         <!-- Partículas de fondo -->
         <div class="particles-container position-absolute w-100 h-100"></div>
@@ -164,6 +162,172 @@
             <i class="fas fa-chevron-down"></i>
         </a>
     </header>
+
+    <!-- MOTOS MODELO -->
+    <div class="container">
+        <div class="breadcrumb">
+            <a href="#">Home</a> > <a href="#">Zapatillas</a> > <a href="#">Zapatillas Mujer</a>
+        </div>
+
+        <div class="product-grid">
+            <!-- Producto 1 - Converse -->
+            <div class="product-card" onclick="showProductDetail(1)">
+                <div class="product-image">
+                    <div class="brand-logo">CONVERSE</div>
+                    <img src="https://i.imgur.com/JzVS7Uj.jpg" alt="Converse Colorful Suede Guinda">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">CONVERSE</div>
+                    <div class="product-name">Zapatilla Urbana Colorful Suede Guinda Mujer</div>
+                    <div class="product-vendor">Por Falabella</div>
+                    <div class="product-price">
+                        <span class="current-price">S/199</span>
+                        <span class="original-price">S/349.90</span>
+                        <span class="discount">43%</span>
+                    </div>
+                    <div class="delivery-info">Llega mañana</div>
+                    <div class="delivery-info">Retira mañana</div>
+                    <div class="delivery-info">Envío en 180 min</div>
+                    <button class="add-to-cart" onclick="event.stopPropagation();addToCart(1)">Agregar al
+                        Carro</button>
+                </div>
+            </div>
+
+            <!-- Producto 2 - Nike -->
+            <div class="product-card" onclick="showProductDetail(2)">
+                <div class="product-image">
+                    <div class="brand-logo">NIKE</div>
+                    <img src="https://i.imgur.com/5XZwWQm.jpg" alt="Nike Air Max Azul">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">NIKE</div>
+                    <div class="product-name">Zapatilla Running Air Max Azul Marino Mujer</div>
+                    <div class="product-vendor">Por Falabella</div>
+                    <div class="product-price">
+                        <span class="current-price">S/279</span>
+                        <span class="original-price">S/399.90</span>
+                        <span class="discount">30%</span>
+                    </div>
+                    <div class="delivery-info">Llega mañana</div>
+                    <div class="delivery-info">Retira en 2 días</div>
+                    <div class="delivery-info">Envío en 240 min</div>
+                    <button class="add-to-cart" onclick="event.stopPropagation();addToCart(2)">Agregar al
+                        Carro</button>
+                </div>
+            </div>
+
+            <!-- Producto 3 - Adidas -->
+            <div class="product-card" onclick="showProductDetail(3)">
+                <div class="product-image">
+                    <div class="brand-logo">ADIDAS</div>
+                    <img src="https://i.imgur.com/8zGqT2a.jpg" alt="Adidas Ultraboost Blanca">
+                </div>
+                <div class="product-info">
+                    <div class="product-brand">ADIDAS</div>
+                    <div class="product-name">Zapatilla Deportiva Ultraboost 21 Blanca Mujer</div>
+                    <div class="product-vendor">Por Falabella</div>
+                    <div class="product-price">
+                        <span class="current-price">S/329</span>
+                        <span class="original-price">S/459.90</span>
+                        <span class="discount">28%</span>
+                    </div>
+                    <div class="delivery-info">Llega en 2 días</div>
+                    <div class="delivery-info">Retira hoy</div>
+                    <div class="delivery-info">Envío en 120 min</div>
+                    <button class="add-to-cart" onclick="event.stopPropagation();addToCart(3)">Agregar al
+                        Carro</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Modal de detalle de producto -->
+    <div id="productModal" class="product-modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div class="breadcrumb">
+                    <a href="#">Home</a> > <a href="#">Zapatillas</a> > <a href="#">Zapatillas Mujer</a>
+                </div>
+                <span class="close-modal" onclick="closeModal()">&times;</span>
+            </div>
+
+            <div class="product-detail">
+                <div class="detail-image-container">
+                    <div class="brand-logo" id="modalBrand">CONVERSE</div>
+                    <div class="image-gallery">
+                        <div class="main-image-container">
+                            <img id="mainProductImage" src="" alt="Imagen del producto">
+                        </div>
+                        <div class="thumbnail-column" id="thumbnailContainer"></div>
+                    </div>
+                </div>
+
+                <div class="detail-info">
+                    <div class="detail-brand" id="modalBrandName">CONVERSE</div>
+                    <div class="detail-name" id="modalProductName">Zapatilla Urbana Colorful Suede Guinda Mujer Converse
+                    </div>
+
+                    <div class="rating">★★★★★ (0) <a href="#">Calificar</a></div>
+
+                    <div class="vendor" id="modalVendor">Vendido por Falabella</div>
+
+                    <div class="size-selector">
+                        <div>Talla:</div>
+                        <div class="size-options" id="sizeOptions"></div>
+                        <div class="size-guide">Tabla de tallas</div>
+                    </div>
+
+                    <div class="color-selector" id="colorSelector" style="display: none;">
+                        <div>Color:</div>
+                        <div class="color-options" id="colorOptions"></div>
+                    </div>
+
+                    <div class="delivery-options">
+                        <div class="delivery-option">
+                            <span class="delivery-icon">✓</span> Despacho a domicilio
+                        </div>
+                        <div class="delivery-option">
+                            <span class="delivery-icon">✓</span> Retira tu compra
+                        </div>
+                        <div class="delivery-option">
+                            <span class="delivery-icon">✓</span> Stock en tienda
+                        </div>
+                    </div>
+
+                    <div class="detail-price">
+                        <span class="current-price" id="modalCurrentPrice">S/199</span>
+                        <span class="original-price" id="modalOriginalPrice">S/349.90</span>
+                    </div>
+
+                    <div class="delivery-info" id="deliveryTime1">Llega mañana</div>
+                    <div class="delivery-info" id="deliveryTime2">Retira mañana</div>
+                    <div class="delivery-info" id="deliveryTime3">Envío en 100 min</div>
+
+                    <div class="quantity-selector">
+                        <div class="quantity-control">
+                            <button class="quantity-btn" onclick="changeQuantity(-1)">-</button>
+                            <input type="text" class="quantity-input" id="modalQuantity" value="1">
+                            <button class="quantity-btn" onclick="changeQuantity(1)">+</button>
+                        </div>
+                        <div class="max-quantity">Máximo 10 unidades.</div>
+                    </div>
+
+                    <button class="buy-btn" id="modalAddToCart" onclick="addToCartFromModal()">AGREGAR AL
+                        CARRITO</button>
+
+                    <div class="policy-info">Paga y ahorra más de $100 en Falabella</div>
+                    <div class="guarantee">Devolver es fácil y gratis<br>Conoce nuestra Satisfacción garantizada</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+
 
     <!-- FOOTER XD -->
 
@@ -333,6 +497,8 @@
             </div>
         </footer>
     </div>
+
+
 
     <!-- JavaScript para interactividad :v -->
     <script src="https://cdn.jsdelivr.net/npm/confetti-js@0.0.18/dist/index.min.js"></script>
